@@ -50,7 +50,7 @@ async def fetch_ais_data(mmsi: str):
                     [180, 180]
                 ]
             ],
-            # "FiltersShipMMSI": [mmsi],
+            "FiltersShipMMSI": [mmsi],
             "FilterMessageTypes":["PositionReport", "StandardClassBPositionReport"]
         }
         await ws.send(json.dumps(subscribe_message))
@@ -127,7 +127,8 @@ async def fetch_ais_data(mmsi: str):
 
                 is_anomaly = anomalyDetection(aresult)
                 print("IS THERE AN ANOMLY??", is_anomaly)
-                yesorno = "yes" if is_anomaly else "no"
+                # yesorno = "yes" if is_anomaly else "no"
+                yesorno = "no"
                 print(yesorno)
                 delta = 0.02
                 coords = (result['Longitude'] - delta, result['Latitude'] - delta, result['Longitude'] + delta, result['Latitude'] + delta)

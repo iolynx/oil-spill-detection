@@ -73,7 +73,7 @@ def loadModel(coords):
     print(np.any(predicted_mask))
     print("length: ", len(predicted_mask) * len(predicted_mask[0]))
     print("1 count:" ,numpy.count_nonzero(predicted_mask))
-    if numpy.count_nonzero(predicted_mask) > 1000:  # If there's any non-background (non-zero) value
+    if numpy.count_nonzero(predicted_mask) > 65530:  # If there's any non-background (non-zero) value
         print("Oil spill detected and authorities are notified.")
         # sendMail()
     else:

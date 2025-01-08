@@ -11,8 +11,10 @@ import os
 
 def getSARImage(bb):
     config = SHConfig()
-    config.sh_client_id = 'f5f5cbef-2129-4585-8843-74e925a439a8' 
-    config.sh_client_secret = 'OMxauLn4GqngJOa6uEcaqRxSJQuuUJyk'
+    # config.sh_client_id = 'f5f5cbef-2129-4585-8843-74e925a439a8' 
+    config.sh_client_id = 'a9394eb7-4709-4f58-98bc-d239b47fe907' 
+    # config.sh_client_secret = 'OMxauLn4GqngJOa6uEcaqRxSJQuuUJyk'
+    config.sh_client_secret = 'iHONqFGIQ0troT927M0QTLOZ5R5PhaCH'
     config.sh_base_url = 'https://services.sentinel-hub.com'
     config.sh_token_url = 'https://services.sentinel-hub.com/oauth/token'
 
@@ -23,7 +25,7 @@ def getSARImage(bb):
     formatted_today = today.strftime("%Y-%m-%d")
 
     # get a few days before (week in this case)
-    days_before = today - timedelta(days=7)
+    days_before = today - timedelta(days=12)
     formatted_days_before = days_before.strftime("%Y-%m-%d")
 
     # Output the formatted dates
@@ -103,10 +105,11 @@ def getSARImage(bb):
 
 
 '''
-delta = 0.02
-# result = (80.144676, 12.976422, 80.184615, 13.016838)
-result  = (80.168889, 12.990302)
-# result = (103.9080605, 1.262379)
+delta = 0.03
+# result = (80.144676, 12.976422, 80.184615, 13.016838) #airport SW
+# result  = (80.168889, 12.990302)
+# result = (80.1657529092746, 13.074304233532974) #ananya ghar
+# result = (103.9080605, 1.262379) #singapore hub
 coords = (result[0] - delta, result[1] - delta, result[0] + delta, result[1] + delta)
 getSARImage(coords)
 
